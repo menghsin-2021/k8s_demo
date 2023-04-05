@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-app-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: apache-app-pod
+  template:
+    metadata:
+      labels:
+        app: apache-app-pod
+    spec:
+      containers:
+      - name: apache-app-container
+        image: lloivne4119/docker-apache-image:latest
+        ports: 
+        - containerPort: 80
